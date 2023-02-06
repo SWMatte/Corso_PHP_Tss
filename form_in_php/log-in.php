@@ -17,14 +17,14 @@
 
                     </div>
         <div class="col-sm-4">
-            <form class="mt-1 mt-md-5" action="log-in-response.php" method="GET">
+            <form class="mt-1 mt-md-5" action="log-in-response.php" method="get">
                 <div class="mb-3">
-                     <label for="email" class="form-label">email</label>
-                     <input type="email" class="form-control"  id="email">
+                     <label for="email" class="form-label" name="email">email</label>
+                     <input type="email" class="form-control"  id="email" name="email">
                 </div> 
                 <div class="mb-3">
-                     <label for="password" class="form-label">password</label>
-                     <input type="password" id="password" class="form-control">
+                     <label for="password" class="form-label"name="password">password</label>
+                     <input type="password" id="password" class="form-control" name="password">
                 </div>
                 <button class="btn btn-primary btn-sm" type="submit"> Accedi </button>
              </form>
