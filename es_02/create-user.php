@@ -45,7 +45,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="donna" name="gender" value="uomo"> donna
+                            <input type="radio" id="uomo" name="gender" value="uomo"> donna
                         </div>
 
 
