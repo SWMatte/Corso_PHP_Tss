@@ -41,7 +41,7 @@
                     <div class="mb-3 pb-4">
                         <label for="sesso" class="form-label" name="gender">sesso</label> <br>
                         <div>
-                            <input type="radio" id="donna" name="gender" value="donna"> uomo
+                            <input type="radio" id="uomo" name="gender" value="uomo"> uomo
                         </div>
 
                         <div>
