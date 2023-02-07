@@ -16,7 +16,7 @@ $password= filter_input(INPUT_GET,"password");
 
 
 echo"<pre>";
-print_r($name." ".$last_name." ".$birthday." ".$birth_place." ".$gender." ".$username." ".$password);
+print_r($name."\n".$last_name."\n".$birthday."\n".$birth_place."\n".$gender."\n".$username."\n".$password."\n");
 echo "</pre>";
 
 
