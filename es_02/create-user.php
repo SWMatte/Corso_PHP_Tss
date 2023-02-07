@@ -30,8 +30,8 @@
                         <input type="cognome" class="form-control" id="cognome" name="last_name">
                     </div>
                     <div class="mb-3">
-                        <label for="dataDiNascita" class="form-label" name="birthday">data di nascita</label>
-                        <input type="dataDiNascita" class="form-control" id="dataDiNascita" name="birthday">
+                        <label for="date" class="form-label" name="birthday">data di nascita</label>
+                        <input type="date" class="form-control" id="dataDiNascita" name="birthday" min="1990-01-01" max="07-02-31">
                     </div>
 
                     <div class="mb-3 ">
