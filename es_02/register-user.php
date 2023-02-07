@@ -12,5 +12,8 @@ print_r($_GET);
 echo "</pre>";
 
 
+    // foreach($_GET AS $i){
+    //     echo $i;
+    // }
 
  ?>

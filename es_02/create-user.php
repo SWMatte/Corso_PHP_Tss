@@ -17,6 +17,9 @@
     <main class="container">
         <section class="row">
             <div class="col-sm-4">
+            </div>
+
+            <div class="col-sm-4">
                 <form class="mt-1 mt-md-5 mb-5" action="register-user.php" method="get">
                     <div class="mb-3">
                         <label for="nome" class="form-label" name="first_name">nome</label>
@@ -36,10 +39,12 @@
                         <input type="luogoDiNascita" class="form-control" id="birth_place" name="birth_place">
                     </div>
                     <div class="mb-3 pb-4">
-                        <label for="sesso" class="form-label" name="gender">sesso</label>
-                        <input type="sesso" class="form-control" id="gender" name="sesso">
+                        <label for="sesso" class="form-label" name="gender">sesso</label> <br>
+                        <input type="radio" id="maschio" name="male" value="uomo"> uomo <br>
+                        <input type="radio" id="donna" name="woman" value="donna"> donna
+
                     </div>
-                    <div class="mb-3 pt-5" >
+                    <div class="mb-3 pt-5">
                         <label for="nomeUtente" class="form-label" name="username">username</label>
                         <input type="nomeUtente" class="form-control" id="nomeUtente" name="username">
                     </div>
@@ -49,7 +54,7 @@
                     </div>
                     <button class="btn btn-primary btn-sm" type="submit"> login </button>
                 </form>
-
+                </div>
 
             </div>
         </section>
