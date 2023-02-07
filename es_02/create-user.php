@@ -40,10 +40,17 @@
                     </div>
                     <div class="mb-3 pb-4">
                         <label for="sesso" class="form-label" name="gender">sesso</label> <br>
-                        <input type="radio" id="maschio" name="male" value="uomo"> uomo <br>
-                        <input type="radio" id="donna" name="woman" value="donna"> donna
+                        <div>
+                            <input type="radio" id="donna" name="gender" value="donna"> uomo
+                        </div>
+
+                        <div>
+                            <input type="radio" id="donna" name="gender" value="donna"> donna
+                        </div>
+
 
                     </div>
+
                     <div class="mb-3 pt-5">
                         <label for="nomeUtente" class="form-label" name="username">username</label>
                         <input type="nomeUtente" class="form-control" id="nomeUtente" name="username">
@@ -54,7 +61,7 @@
                     </div>
                     <button class="btn btn-primary btn-sm" type="submit"> login </button>
                 </form>
-                </div>
+            </div>
 
             </div>
         </section>
