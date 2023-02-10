@@ -20,7 +20,7 @@
             </div>
 
             <div class="col-sm-4">
-                <form class="mt-1 mt-md-5 mb-5" action="register-user.php" method="get">
+                <form class="mt-1 mt-md-5 mb-5" action="register-user.php" method="post">
                     <div class="mb-3">
                         <label for="nome" class="form-label" name="first_name">nome</label>
                         <input type="nome" class="form-control" id="first_name" name="first_name">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label" name="birthday">data di nascita</label>
-                        <input type="date" class="form-control" id="dataDiNascita" name="birthday" min="1990-01-01" max="07-02-31">
+                        <input type="date" class="form-control" id="dataDiNascita" name="birthday" min="1990-01-01" max="2023-02-31">
                     </div>
 
                     <div class="mb-3 ">
@@ -41,19 +41,19 @@
                     <div class="mb-3 pb-4">
                         <label for="sesso" class="form-label" name="gender">sesso</label> <br>
                         <div>
-                            <input type="radio" id="donna" name="gender" value="donna"> donna
+                            <input type="radio" id="uomo" name="gender" value="uomo"> uomo
                         </div>
   
                         <div>
-                            <input type="radio" id="uomo" name="gender" value="uomo"> uomo
+                            <input type="radio" id="donna" name="gender" value="donna"> donna
                         </div>
 
 
                     </div>
 
                     <div class="mb-3 pt-5">
-                        <label for="nomeUtente" class="form-label" name="username">username</label>
-                        <input type="nomeUtente" class="form-control" id="nomeUtente" name="username">
+                        <label for="email" class="form-label" name="username" >username </label>
+                        <input type="email" class="form-control" id="nomeUtente" name="email" placeholder="inserisci email">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label" name="password">password</label>
