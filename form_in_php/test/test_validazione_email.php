@@ -1,7 +1,7 @@
 <?php
 
  
-require "./es_02_form/class/validator/ValidateMail.php" ;
+require "./form_in_php/class/validator/ValidateMail.php" ;
 
 $emails = [
     'a','   ','a@',
