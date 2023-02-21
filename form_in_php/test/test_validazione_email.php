@@ -1,7 +1,7 @@
 <?php
 
  
-require "./form_in_php/class/validator/ValidateMail.php" ;
+require "/xampp/htdocs/Corso_PHP_Tss/form_in_php/class/validator/ValidateMail.php" ;
 
 $emails = [
     'a','   ','a@',

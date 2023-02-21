@@ -1,15 +1,17 @@
 <?php
 
+$first_name = filter_input(INPUT_POST,'first_name');
 
-$first_name = filter_input(INPUT_POST, 'first_name');
-
-
- 
-/* null se non passo dal form.
-
-- se compilato restituisce una stringa, se compilato vuoto da stringa 0
-- false solo con criterio non rispettato quindi mettendo un validate
-qualcosa andrebbe a rispondere false 
-*/
+// whitespace char restituisce una striga   | campo obbligatorio
+// non compilo stringa "" | campo obbligatorio
+// se compilato restituisce una striga | success
+// null se non passo dal form | errore o campo obbligatorio
+// 
 var_dump($first_name);
+
+
 ?>
+
+
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam dignissimos ducimus at quaerat magnam praesentium sit quos blanditiis quas voluptate in delectus soluta, quibusdam quisquam tempore repellendus laborum iste vitae.</p>
+

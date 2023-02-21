@@ -1,72 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    <title>esercitazione form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>
-    <header class="bg-light p-1">
-        <h1 class="display-6">Form-demo</h1>
-    </header>
-    <main class="container">
-        <section class="row">
-            <div class="col-sm-4">
+  <header class="bg-light p-1">
+    <h1 class="display-6">Applicazione demo</h1>
+  </header>
+  <main class="container">
+
+    <section class="row">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="col-sm-8">
+
+        <form class="mt-1 mt-md-5" action="register-user.php" method="POST">
+
+          <div class="mb-3">
+            <label for="first_name" class="form-label">nome</label>
+            <input type="text" class="form-control" name="first_name" id="first_name">
+          </div>
+
+          <div class="mb-3">
+            <label for="last_name" class="form-label">cognome</label>
+            <input type="text" class="form-control" name="last_name" id="last_name">
+          </div>
+          <div class="mb-3">
+            <label for="birthday" class="form-label">data di nascita</label>
+            <input type="date" class="form-control" name="birthday" id="birthday">
+          </div>
+          <div class="mb-3">
+            <label for="birth_place" class="form-label">luogo di nascita</label>
+            <input type="text" class="form-control" name="birth_place" id="birth_place">
+          </div>
+
+
+
+          <div class="mb-3">
+            <span>Genere</span>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gender_M">
+              <label class="form-check-label" for="gender_M">
+                Maschile
+              </label>
             </div>
-
-            <div class="col-sm-4">
-                <form class="mt-1 mt-md-5 mb-5" action="register-user.php" method="post">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label" name="first_name">nome</label>
-                        <input type="nome" class="form-control" id="first_name" name="first_name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cognome" class="form-label" name="last_name">cognome</label>
-                        <input type="cognome" class="form-control" id="cognome" name="last_name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="date" class="form-label" name="birthday">data di nascita</label>
-                        <input type="date" class="form-control" id="dataDiNascita" name="birthday" min="1990-01-01" max="2023-02-31">
-                    </div>
-
-                    <div class="mb-3 ">
-                        <label for="luogoDiNascita" class="form-label" name="birth_place">luogo di nascita</label>
-                        <input type="luogoDiNascita" class="form-control" id="birth_place" name="birth_place">
-                    </div>
-                    <div class="mb-3 pb-4">
-                        <label for="sesso" class="form-label" name="gender">sesso</label> <br>
-                        <div>
-                            <input type="radio" id="uomo" name="gender" value="uomo"> uomo
-                        </div>
-  
-                        <div>
-                            <input type="radio" id="donna" name="gender" value="donna"> donna
-                        </div>
-
-
-                    </div>
-
-                    <div class="mb-3 pt-5">
-                        <label for="email" class="form-label" name="username" >username </label>
-                        <input type="email" class="form-control" id="nomeUtente" name="email" placeholder="inserisci email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label" name="password">password</label>
-                        <input type="password" id="password" class="form-control" name="password">
-                    </div>
-                    <button class="btn btn-primary btn-sm" type="submit"> login </button>
-                </form>
-            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gender_F" checked>
+              <label class="form-check-label" for="gender_F">
+                Femminile
+              </label>
 
             </div>
-        </section>
-    </main>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">Nome utente</label>
+            <input type="text" class="form-control" name="username" id="username">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
+          </div>
+
+
+          <button class="btn btn-primary btn-sm" type="submit"> Crea </button>
+        </form>
+      </div>
+
+      <div class="col-sm-2">
+      </div>
+    </section>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 </html>
