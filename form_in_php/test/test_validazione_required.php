@@ -12,7 +12,7 @@ $datas = ['', "", '    ', '<h1></h1>', '<p> </p>', 'ciao', 'numero', ''];
 
 $v = new ValidateRequired();
 
- $v->isEmpty($datas);
+ $v->isValid($datas);
     
      
     

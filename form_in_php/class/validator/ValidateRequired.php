@@ -3,7 +3,7 @@
 class ValidateRequired
 {
 
-    public function isEmpty($data)
+    public function isValid($data)
     {
         /*empty da 0 (true) se è vuota, 1 (false) se non è vuota */
         foreach ($data as $i => $elementi) {

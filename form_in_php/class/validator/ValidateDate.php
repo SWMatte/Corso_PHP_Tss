@@ -1,8 +1,8 @@
 <?php
-class checkdate
+class ValidateDate
 {
 
-    public function validateDate($date)
+    public function isValid($date)
     {
         $formati = ["d-m-Y", "d.m.Y", "d/m/Y"];
         foreach ($formati as $formato) {

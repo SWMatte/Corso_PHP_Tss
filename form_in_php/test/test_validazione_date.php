@@ -9,10 +9,10 @@ require "/xampp/htdocs/Corso_PHP_Tss/form_in_php/class/validator/ValidateDate.ph
 $date = ['20#01#1990', "1/02/1190", "", "31-01-1990", "20.01.1990", "20-1-19999"];
 
 
-$v = new checkDate();
+$v = new ValidateDate();
 
 foreach ($date as $i => $data) {
-    if ($v->validateDate($data)) {
+    if ($v->isValid($data)) {
         echo "[$i] vero";
     } else {
         echo "[$i] falso";
