@@ -23,7 +23,7 @@
                 <form class="mt-1 mt-md-5 mb-5" action="register-user.php" method="get">
                     <div class="mb-3">
                         <label for="nome" class="form-label" name="first_name">nome</label>
-                        <input type="nome" class="form-control" id="first_name" name="first_name">
+                        <input type="nome" class="form-control" id="first_name" name="first_name" required>
                     </div>
                     <div class="mb-3">
                         <label for="cognome" class="form-label" name="last_name">cognome</label>
