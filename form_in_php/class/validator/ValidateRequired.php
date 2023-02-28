@@ -20,10 +20,10 @@ class ValidateRequired
 
 class ValidateRequired
 {
-  public function isValid( $value)
+  public function isValid($value)
   {
-    $allowed_tags='';
-    $ValueWithoutpace=trim(strip_tags($value, $allowed_tags));
+    
+    $ValueWithoutpace=trim(strip_tags($value));
    
     if($ValueWithoutpace==''){
         return false;
