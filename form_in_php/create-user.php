@@ -5,13 +5,33 @@ l'indice lo prendi mandando a schermo solo il server e cercando con ctrl u la ri
 
 */
 //  print_r($_SERVER['REQUEST_METHOD']);
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  echo 'dati inviati, ora li devo controllare';
-} else {
-  echo 'non devo fare nulla';
-}
-?>
+require "./class/validator/Validable.php";
+require "./class/validator/ValidateRequired.php";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  echo 'POST dati inviati, ora li devo controllare';
+
+  //come associo la validazione ad un campo / input / controllo.
+
+  $validatordName = new ValidateRequired();
+  $validatedName = $validatordName->isValid($_POST['first_name']);
+
+  $isValidNameClass = $validatordName->isValid($_POST['first_name']) ? '' : 'is-invalid';
+}  /*questo script viene eseguito quando visualizzo x la prima volta il form */
+ if($_SERVER['REQUEST_METHOD'] =='GET'){
+ /*si dichiara che è false in quanto inizialmente non esiste ancora questa variabile xke entriamo via GET 
+  si potrebbe mettere sotto anche if(isset($validatedName) $$ !$validatedName) ma questo andrebbe messo nella parte sotto del codice
+  isset sarebbe false inizialmente quindi essendo in and funzionerebbe non mostrando l'errore.
+  */
+ $validatedName = false;
+ /*imposto di default uno spazio vuoto a fianco al nome come definito dalla funzione  */
+ $isValidNameClass= ' ';
+ }
+
+
+
+ 
+?>
 
 <!doctype html>
 <html lang="en">
@@ -36,13 +56,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="col-sm-8">
 
         <form class="mt-1 mt-md-5" action="create-user.php" method="POST">
-
+          <!--  con form-control di bootstrap associamo le classi valid-invalid , poi con il tag '<php'
+           andiamo a stampare all'interno la classe che fa il controllo-->
           <div class="mb-3">
             <label for="first_name" class="form-label">nome</label>
-            <input type="text" class="form-control " name="first_name" id="first_name">
-            <div class="invalid-feedback">
-              errore
-            </div>
+            <input type="text" class="form-control <?php echo $isValidNameClass ?> " name="first_name" id="first_name">
+            <?php
+            /* invalid-feedback arriva da bootstrap -> definisce che la classe è invalida 
+             apriamo e chiudiamo piu volte il tag di php perche' per andare a capo e inserire in mezzo l'html necessita di 
+             essere aperto piu volte.
+            */
+            if (!$validatedName) {  ?>
+              <div class="invalid-feedback">
+                il nome è obbligatorio
+
+              </div>
+
+            <?php
+            }
+            ?>
+
+
           </div>
 
           <div class="mb-3">
