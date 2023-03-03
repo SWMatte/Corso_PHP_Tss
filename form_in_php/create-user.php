@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                     <div class="mb-3">
                         <label for="birthday" class="form-label"> data di nascita</label>
-                        <input type="date" valueclass="form-control  <?php echo !$validatorDate->getValid() ? 'is-invalid':'' ?>" name="birthday" id="birthday">
+                        <input type="text" value="<?= $validatorDate->getValue() ?>" class="form-control  <?php echo !$validatorDate->getValid() ? 'is-invalid':'' ?>" name="birthday" id="birthday">
                         <?php
                         if (!$validatorDate->getValid()) { ?>
                             <div class="invalid-feedback">
