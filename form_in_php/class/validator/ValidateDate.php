@@ -27,14 +27,51 @@ class ValidateDate implements Validable
 
 */
 
+
+
+    private $value;
+    private $message;
+    private $valid;
+ 
+    public function __construct($default_value, $message = 'è obbligatorio')
+	{
+
+		$this->value = $default_value;
+		$this->valid = true;
+		$this->message = $message;
+	}
+
+
+
+
     public function isValid($value)
     {
         $formato = "d/m/Y";
-       
+
         $d = DateTime::createFromFormat($formato, $value);
         if ($d && $d->format($formato) == $value) {
+
+            $this->valid = true;
             return true;
         }
+        $this->valid = false;
         return false;
     }
+
+    public function getMessage()
+	{
+		return $this->message;
+	}
+
+
+	public function getValid()
+	{
+		return $this->valid;
+	}
+
+	public function getValue()
+	{
+		return $this->value;
+	}
+
 }

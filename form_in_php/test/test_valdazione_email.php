@@ -4,9 +4,7 @@
 // print_r($files);
 
 
-
-require "/xampp/htdocs/Corso_PHP_Tss/form_in_php/class/validator/ValidateMail.php";
-
+require "/xampp/htdocs/corso_php_mysql_2223/form_in_php/class/validator/ValidateMail.php";
  
 // require "./form_in_php/class/validator/ValidateMail.php";
 
