@@ -125,9 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <div class="mb-3">
                         <label for="gender" class="form-label">genere</label>
                         <select name="gender" value=" <?=   $validatorGender->getValue() ?>" class="form-select <?php echo !$validatorGender->getValid() ? 'is-invalid':''  ?>" id="gender">
-                            <option value=""></option>
+                            <option value=""selected></option>
                             <option value="F"><?php if(isset($_POST['gender']) && $_POST['gender'] == 'F') $validatorGender->getValue(); ?>F</option>
-                            <option value="M" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'M') $validatorGender->getValue(); ?>>M</option>
+                            <option value="M" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'M')  $validatorGender->getValue(); ?>>M</option>
 
                         </select>   
                         <?php
