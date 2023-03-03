@@ -11,11 +11,13 @@ require "./class/validator/ValidateDate.php";
 //  print_r($_POST);
 
 $validatorName = new ValidateRequired('','Il nome è obbligatorio');
+$validatorSurname = new ValidateRequired('','Il cognome è obbligatorio');
+$validatorGender =new ValidateRequired('','Il genere è obbligatorio');
+
 
 $validatorUser = new ValidateMail('',"email obbligatoria");
 
 $validatorDate= new ValidateDate(date("d/m/Y"),'Data obbligatoria');
-
 
 print_r($validatorUser->getValid()."arrivo dal get");
 
@@ -27,7 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $validateDate = $validatorDate-> isValid($_POST['birthday']);
 
-    print_r($validatorUser->getValid()."arrivo dal post");
+    $validateSurname= $validatorSurname->isValid($_POST["last_name"]); 
+
+    $validateGender= $validatorGender->isValid($_POST["gender"]);
+
+    
+    
 }
 
 /** questo script viene eseguito quanod visualizzo per la prima volta il form */
@@ -88,11 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                     <div class="mb-3">
                         <label for="last_name" class="form-label">cognome</label>
-                        <input type="text" class="form-control <?php echo $isValidLastNameClass ?>" name="last_name" id="last_name">
+                        <input type="text" value="<?= $validatorSurname->getValue() ?>" class="form-control <?php echo !$validatorSurname->getValid() ? 'is-invalid':''  ?>"  name="last_name" id="last_name">
                         <?php
-                        if (isset($validatedLastName) && !$validatedLastName) { ?>
+                        if (!$validatorSurname->getValid()) { ?>
                             <div class="invalid-feedback">
-                                il cognome è obbligatorio
+                                <?php echo $validatorSurname->getMessage() ?>
                             </div>
                         <?php
                         }
@@ -117,18 +124,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">genere</label>
-                        <select name="gender" class="form-select <?php echo $isValidGender ?>" id="gender">
+                        <select name="gender" value=" <?=   $validatorGender->getValue() ?>" class="form-select <?php echo !$validatorGender->getValid() ? 'is-invalid':''  ?>" id="gender">
                             <option value=""></option>
-                            <option value="M">M</option>
-                            <option value="F">F</option>
-                        </select>
+                            <option value="F"><?php if(isset($_POST['gender']) && $_POST['gender'] == 'F') $validatorGender->getValue(); ?>F</option>
+                            <option value="M" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'M') $validatorGender->getValue(); ?>>M</option>
+
+                        </select>   
                         <?php
-                        if (isset($validatedGender) && !$validatedGender) : ?>
+                         if (!$validatorGender->getValid()) { ?>
                             <div class="invalid-feedback">
-                                il genere è obbligatorio
+                            <?php echo $validatorGender->getMessage() ?>
                             </div>
                         <?php
-                        endif//if() : endif sintassi alternativa if 
+                        }
+
+                        
+
                         ?>
                         
                     </div>
