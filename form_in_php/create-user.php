@@ -10,38 +10,35 @@ require "./class/validator/ValidateDate.php";
 
 //  print_r($_POST);
 
-$validatorName = new ValidateRequired('','Il nome è obbligatorio');
-$validatorSurname = new ValidateRequired('','Il cognome è obbligatorio');
-$validatorGender =new ValidateRequired('','Il genere è obbligatorio');
+$validatorName = new ValidateRequired('', 'Il nome è obbligatorio');
+$validatorSurname = new ValidateRequired('', 'Il cognome è obbligatorio');
+$validatorGender = new ValidateRequired('', 'Il genere è obbligatorio');
 
 
-$validatorUser = new ValidateMail('',"email obbligatoria");
+$validatorUser = new ValidateMail('', "email obbligatoria");
 
-$validatorDate= new ValidateDate(date("d/m/Y"),'Data obbligatoria');
+$validatorDate = new ValidateDate(date("d/m/Y"), 'Data obbligatoria');
 
-print_r($validatorUser->getValid()."arrivo dal get");
+print_r($validatorUser->getValid() . "arrivo dal get");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     print_r($_POST);
     $validatedName = $validatorName->isValid($_POST['first_name']);
 
-    $validateUser = $validatorUser->isValid($_POST['username'] );
+    $validateUser = $validatorUser->isValid($_POST['username']);
 
-    $validateDate = $validatorDate-> isValid($_POST['birthday']);
+    $validateDate = $validatorDate->isValid($_POST['birthday']);
 
-    $validateSurname= $validatorSurname->isValid($_POST["last_name"]); 
+    $validateSurname = $validatorSurname->isValid($_POST["last_name"]);
 
-    $validateGender= $validatorGender->isValid($_POST["gender"]);
-
-    
-    
+    $validateGender = $validatorGender->isValid($_POST["gender"]);
 }
 
 /** questo script viene eseguito quanod visualizzo per la prima volta il form */
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    print_r($_GET)."sono nel get";
+    print_r($_GET) . "sono nel get";
     //$validatedName = false; per non far scattare il warning oppure usare isset
-    
+
 }
 
 
@@ -67,18 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         <section class="row">
             <div class="col-sm-3">
-                 
+
             </div>
             <div class="col-sm-6">
                 <form class="mt-1 mt-md-5" action="create-user.php" method="post">
                     <div class="mb-3">
                         <label for="first_name" class="form-label">nome</label>
-                        <input type="text" 
-                            value="<?= $validatorName->getValue() ?>"
-                            class="form-control <?php echo !$validatorName->getValid() ? 'is-invalid':''  ?>" 
-                            name="first_name" 
-                            id="first_name"
-                        >
+                        <input type="text" value="<?= $validatorName->getValue() ?>" class="form-control <?php echo !$validatorName->getValid() ? 'is-invalid' : ''  ?>" name="first_name" id="first_name">
                         <!-- mettere is-invalid -->
                         <?php
                         //GET isset($validatedName) prova a usare una variabile e se non esiste(false) non da warning
@@ -95,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                     <div class="mb-3">
                         <label for="last_name" class="form-label">cognome</label>
-                        <input type="text" value="<?= $validatorSurname->getValue() ?>" class="form-control <?php echo !$validatorSurname->getValid() ? 'is-invalid':''  ?>"  name="last_name" id="last_name">
+                        <input type="text" value="<?= $validatorSurname->getValue() ?>" class="form-control <?php echo !$validatorSurname->getValid() ? 'is-invalid' : ''  ?>" name="last_name" id="last_name">
                         <?php
                         if (!$validatorSurname->getValid()) { ?>
                             <div class="invalid-feedback">
@@ -107,11 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     </div>
                     <div class="mb-3">
                         <label for="birthday" class="form-label"> data di nascita</label>
-                        <input type="text" value="<?= $validatorDate->getValue() ?>" class="form-control  <?php echo !$validatorDate->getValid() ? 'is-invalid':'' ?>" name="birthday" id="birthday">
+                        <input type="text" value="<?= $validatorDate->getValue() ?>" class="form-control  <?php echo !$validatorDate->getValid() ? 'is-invalid' : '' ?>" name="birthday" id="birthday">
                         <?php
                         if (!$validatorDate->getValid()) { ?>
                             <div class="invalid-feedback">
-                            <?php echo $validatorDate->getMessage() ?>
+                                <?php echo $validatorDate->getMessage() ?>
                             </div>
                         <?php
                         }
@@ -120,43 +112,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">luogo di nascita</label>
                         <input type="text" class="form-control" name="birth_place" id="birth_place">
-                         
+
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">genere</label>
-                        <select name="gender" value=" <?=   $validatorGender->getValue() ?>" class="form-select <?php echo !$validatorGender->getValid() ? 'is-invalid':''  ?>" id="gender">
-                            <option value=""selected></option>
-                            <option value="F"><?php if(isset($_POST['gender']) && $_POST['gender'] == 'F') $validatorGender->getValue(); ?>F</option>
-                            <option value="M" <?php if(isset($_POST['gender']) && $_POST['gender'] == 'M')  $validatorGender->getValue(); ?>>M</option>
+                        <select name="gender" value=" <?= $validatorGender->getValue() ?>" class="form-select <?php echo !$validatorGender->getValid() ? 'is-invalid' : ''  ?>" id="gender">
+                            <option value="" <?php         ?> ></option>
+                            <option value="F " selected>F</option>
+                            <option value="M" >M</option>
+                            
 
-                        </select>   
+                            
+                    
+                        </select>
                         <?php
-                         if (!$validatorGender->getValid()) { ?>
+                        if (!$validatorGender->getValid()) { ?>
                             <div class="invalid-feedback">
-                            <?php echo $validatorGender->getMessage() ?>
+                                <?php echo $validatorGender->getMessage() ?>
                             </div>
                         <?php
                         }
 
-                        
+
 
                         ?>
-                        
+
                     </div>
                     <div class="mb-3">
                         <label for="username" class="form-label">nome utente</label>
-                        <input type="text"  value="<?= $validatorUser->getValue() ?>" class="form-control  <?php echo !$validatorUser->getValid() ? 'is-invalid':''  ?>" name="username" id="username">
+                        <input type="text" value="<?= $validatorUser->getValue() ?>" class="form-control  <?php echo !$validatorUser->getValid() ? 'is-invalid' : ''  ?>" name="username" id="username">
                         <?php
-                          
+
                         if (!$validatorUser->getValid()) { ?>
                             <div class="invalid-feedback">
-                            <?php echo $validatorUser->getMessage() ?>
+                                <?php echo $validatorUser->getMessage() ?>
                             </div>
                         <?php
                         }
                         ?>
 
-                       
+
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">password</label>
